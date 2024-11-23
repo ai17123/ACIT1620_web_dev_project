@@ -1,12 +1,94 @@
-.ball{
-    background-color:blue;
-    width:50px;
-    height:50px;
-    border-radius: 50%;
-    position:absolute;
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    font-weight:bold;
+    font-family: sans-serif;
 }
-.box{
-    background-color:black;
-    height:100px;
-    width:100px;
+:root{
+    --tangerine:#DEAA79;
+    --tan:#FFE6A9;
+    --greenish:#B1C29E;
+    --trans_greenish:#b1c29e83;
+    --turquoise:#659287;
+    --white:#ffffff;
+    --black:#000000;
+}
+
+header{
+    position:fixed;
+    z-index:10;
+    background-color:var(--turquoise);
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+header ul{
+    display:flex;
+    list-style-type:none;
+    margin:0px;
+}
+
+header li{
+    padding:15px;
+}
+
+header a{
+    color:var(--white);
+    text-decoration: none;
+    font-size:20px;
+}
+
+header li:hover{
+    background-image:linear-gradient(to bottom right, var(--greenish), var(--tangerine));
+}
+
+.overlay{
+    position:absolute;
+    transform:translatey(50%);
+    padding: 75px;
+
+}
+
+.overlay h1{
+    font-size:50px;
+}
+
+h1, p, button{
+    color:var(--white)
+}
+
+.overlay button{
+    border:1px solid var(--tangerine);
+    background-color: transparent;
+    padding:25px 75px 25px 15px;
+    font-weight:bold;
+    font-size:25px;
+}
+
+.overlay button:hover{
+    background-color:var(--trans_greenish)
+}
+
+#info{
+    height:800px;
+    background-image: url('eevee-pokemon-4k-wallpaper-uhdpaper.com-101@2@a.jpg');
+    background-size: 100% auto;
+    background-position: 50%;
+}
+
+.info{
+    position:absolute;
+    transform: translateY(6%);
+    width:100%;
+    background: var(--greenish);
+    height:800px;
+}
+
+.container{
+    border:2px solid white;
+    width:25%;
+    height:25%;
+    position:absolute
 }
