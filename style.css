@@ -17,7 +17,7 @@ body{
 }
 
 header{ 
-    position:fixed;
+    /* position:fixed if want to keep it up */
     z-index:10;
     background-color:var(--turquoise);
     width:100%;
