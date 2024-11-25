@@ -158,3 +158,30 @@ cursor: pointer;
 .contact-form button:hover {
 background-color: var(--greenerish);
 }
+
+.instructions {
+    background-color: var(--tan);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: var(--black);
+}
+.instructions h1 {
+    color: var(--turquoise);
+    font-size: 24px;
+    text-align: center;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.instructions p{
+ color: black;
+}
