@@ -52,6 +52,9 @@ characterOptions.forEach(option => {
         next()
     })
 })
+function exit(){
+    document.location.href = "../index.html"
+}
 function alex_player(){
     person.health = 500
     person.maxHealth = 500
@@ -65,8 +68,8 @@ function jorge_player(){
     person.heal = person.heal/2
 }
 function khoi_player(){
-    player.health = 200
-    player.maxHealth = 200
+    player.health = 150
+    player.maxHealth = 150
     person.attack = person.attack/3
     person.heal = person.heal * 50
 }
@@ -86,8 +89,8 @@ function jorge_enemy(){
     enemy.heal = enemy.heal/2
 }
 function khoi_enemy(){
-    enemy.health = 200
-    enemy.maxHealth = 200
+    enemy.health = 150
+    enemy.maxHealth = 150
     enemy.attack = enemy.attack/3
     enemy.heal = enemy.heal * 5
 }
