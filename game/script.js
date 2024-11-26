@@ -68,7 +68,7 @@ function khoi_player(){
     player.health = 200
     player.maxHealth = 200
     person.attack = person.attack/3
-    person.heal = person.heal * 5
+    person.heal = person.heal * 50
 }
 function jian_player(){
     person.defence = person.defence*2.5
