@@ -68,8 +68,8 @@ function jorge_player(){
     person.heal = person.heal/2
 }
 function khoi_player(){
-    player.health = 150
-    player.maxHealth = 150
+    person.health = 150
+    person.maxHealth = 150
     person.attack = person.attack/3
     person.heal = person.heal * 2.5
 }
