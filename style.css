@@ -185,3 +185,385 @@ background-color: var(--greenerish);
 .instructions p{
  color: black;
 }
+
+pre{
+    position:absolute;
+    padding:0px;
+    font-weight:bolder;
+    color:white;
+    left:25px;
+}
+
+progress{
+    width:80%;
+    height:50px;
+    background:none;
+
+}
+
+progress::-webkit-progress-value{
+    background: linear-gradient(to bottom right, rgb(1, 105, 1), rgb(5, 194, 5));
+    border-radius:25px 0px 10px 0px;
+    border:2px solid black;
+    border-bottom:5px solid rgb(255, 255, 255);
+
+}
+
+progress::-webkit-progress-bar {
+    background-image: linear-gradient(to bottom right, rgb(114, 6, 15), rgb(212, 58, 71));
+    border-radius:25px 0px 10px 0px;
+}
+@keyframes idle_anim{
+    0%{
+        transform:translate(-10px,0px);
+    }
+    25%{
+        transform:translate(0px,-10px);
+    }
+    50%{
+        transform:translate(10px,0px);
+    }
+    75%{
+        transform:translate(0px,-10px);
+    }
+    100%{
+        transform:translate(-10px,0px);
+    }
+}
+
+.halfbody{
+    display:flex;
+    height:100%;
+}
+.charactercontainer{
+    height:40vh;
+    width:30vw;
+    padding:15px
+}
+.player_side{
+    height:100%;
+    width:50%;
+    display:flex;
+    justify-content:center;
+}
+#player{
+    position:absolute;
+    bottom:0px;
+    animation-name:idle_anim;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+}
+.enemy_side{
+    height:100%;
+    width:50%;
+    display:flex;
+    justify-content:center;
+}
+#enemy{
+    animation-name:idle_anim;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+}
+
+.menubar{
+    background-color:rgba(172, 172, 172, 0.897);
+    width:50vw;
+    height:30vh;
+    padding:10px;
+    position:absolute;
+    bottom:5vh;
+    right:3vw;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-row: auto auto;
+    grid-column-gap:1vh;
+    grid-row-gap:1vw;
+    justify-content:center;
+    border-radius:10px;
+}
+
+.menupos2{
+    position:absolute;
+}
+
+.action{
+    border:none;
+    border-radius:10px;
+    transition: all .5s;
+    font-size:25px;
+}
+
+.action:hover{
+    background-image:linear-gradient(to bottom left, rgb(73, 68, 68), rgb(27, 27, 27));
+    color:white;
+    transform: scale(1.1);
+}
+
+.count{
+    position:absolute;
+    font-weight: bolder;
+    font-size:20px;
+}
+
+#coverup{
+    height:100vh;
+    width:100%;
+    position:absolute;
+    background:rgba(0, 0, 0, 0.945);
+    top:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#characteroptions{
+    width:50%;
+    height:50%;
+    background:rgba(230, 230, 230, 0.905);
+    margin-right:auto;
+    margin-left:auto;
+    padding:10px;
+    border-radius:15px;
+    border:2px solid white;
+}
+
+.characters{
+    width:100%;
+    height:75%;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.characters button{
+    height:50%;
+    border-radius:10px;
+    transition: all 1s;
+    padding:0px;
+    border:none;
+}
+
+.charcard{
+    width:25%;
+    transition:all .5s;
+    overflow:hidden;
+    border-radius:10px;
+    border:5px solid black;
+}
+
+.charcard button {
+    position:relative;
+}
+
+.charcard button{
+    width:100%;
+    height:100%
+}
+
+.charcard:hover{
+    width:60%
+}
+
+.charcard:hover button{
+    height:100%;
+}
+
+.card:hover {
+    border-radius: 0px;
+    transform:translate(0%,-113%);
+    height:100%;
+    width:100%;
+    color:white;
+}
+.card{
+    position: relative;
+    width:100%;
+    height:50%;
+    transition:all .5s;
+    transform:translate(50%,-275%);
+    font-size: 1.5em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.card1{
+    background:rgb(33, 24, 130);
+    color:rgb(32, 24, 130);
+}
+.card2{
+    background:rgb(110, 3, 110);
+    color:rgb(110, 3, 110);
+}
+.card3{
+    background:rgb(206, 143, 188);
+    color:rgb(206, 143, 188);
+}
+.card4{
+    background:rgb(5, 167, 5);
+    color:rgb(5, 167, 5);
+}
+
+.characters button img{
+    filter:grayscale(75%);
+    height:100%;
+    width:100%;   
+    transition: all 1s;
+    border-radius: 5px;
+}
+
+/* .characters button:hover{
+    height:100%;
+} */
+
+/* .characters button:hover img{
+    filter:grayscale(5%);
+} */
+
+/* .characters button:hover .card{
+    transform:translate(0%,-100%);
+    border-radius:0px;
+    color:white;
+}
+    */
+.card1:hover {
+    background:rgba(33, 24, 130, 0.749);
+}
+.card2:hover {
+    background:rgba(110, 3, 110, 0.749);
+}
+.card3:hover {
+    background:rgba(206, 143, 188, 0.749);
+}
+.card4:hover {
+    background:rgba(5, 167, 5, 0.749);
+}
+
+.characterName{
+    background:linear-gradient(to left, rgb(241, 233, 233), rgb(145, 135, 135));
+    width:50%;
+    height:35px;
+    border-radius: 0px 0px 15px 0px;
+    color:white;
+    font-weight:bolder;
+    font-size:25px;
+    padding-left:20px;
+    overflow:hidden;
+    border:2px solid rgba(0, 0, 0, 0.733)
+}
+
+#result{
+    position:absolute;
+    left:25%;
+    top:25%;
+    background:white;
+    height:50%;
+    width:50%;
+    display:grid;
+    justify-content: center;
+    font-size:5vw;
+    padding:15px;
+    display:none;
+}
+
+#resultTxt{
+    margin:0px;   
+}
+
+#reload{
+    border:none;
+    width:100%;
+    height:50px;
+    font-size: 25px;
+    font-weight:bolder;
+    border-radius: 10px;
+}
+
+#reload:hover{
+    background:rgb(209, 204, 204);
+    color:white;
+}
+
+.endoption{
+    width:100%;
+}
+
+.shadow{
+    height:10%;
+    width:90%;
+    background-image:linear-gradient(to right, rgb(185, 171, 171), rgb(0, 0, 0) ) ;
+    border-radius: 50%;
+    position:absolute;
+    bottom:10px;
+    
+}
+
+.gamebackground{
+    position:absolute;
+    height:100vh;
+    width:100%;
+    background:lightblue;
+}
+
+.grass{
+    height:70vh;
+    width:100%;
+    background-image:linear-gradient(to top right,rgb(46, 100, 46), rgb(43, 194, 43));
+    position:absolute;
+    bottom:0;
+}
+
+@media only screen and (max-width: 480px){
+    .halfbody{
+        display:flex;
+        height:75%;
+    }
+    .menubar{
+        width:90%;
+    }
+    .container{
+        height:20vh
+    }
+    #player{
+        position:absolute;
+        bottom:50%
+    }
+    progress{
+        width:100%;
+        height:25px;
+        background:none;
+    }
+    pre{
+        position:absolute;
+        padding:0px;
+        font-weight:bolder;
+        color:white;
+        left:40px;
+        top:6px;
+    }
+    .characterName{
+        width:40%;
+        height:20px;
+        font-size:15px;
+        padding-left:20px;
+    }
+    .characters{
+        display:grid;
+        grid-template-columns: 50% 50%;
+    }
+    .charcard{
+        width:90%
+    }
+    .charcard:hover{
+        width:95%
+    }
+    .card{
+        height:100%;
+        width:100%;
+        transform:translate(50%,-200%);
+        font-size: 1em;
+    }
+    .card:hover{
+        transform:translateY(-129%)
+    }
+    .grass{
+        height:90%;
+    }
+}
