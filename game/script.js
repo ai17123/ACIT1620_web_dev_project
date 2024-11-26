@@ -1,7 +1,7 @@
 person = {
     maxHealth:250,
     health:250,
-    name:"Alex",
+    name:"",
     defence:50,
     heal:10,
     attack:25,
@@ -11,7 +11,7 @@ person = {
 enemy = {
     maxHealth:250,
     health:250,
-    name:"Jian",
+    name:"",
     defence:50,
     heal:10,
     attack:25,
@@ -23,7 +23,6 @@ function next(){
 }
 //count moves
 let moves = 0;
-
 
 //character chosing function
 var playerCharacter = ''
@@ -56,46 +55,60 @@ function exit(){
     document.location.href = "../index.html"
 }
 function alex_player(){
+    person.name = "Alex"
     person.health = 500
     person.maxHealth = 500
     person.attack = person.attack/2
     person.heal = 0 
 }
 function jorge_player(){
+    person.name = "Jorge"
     person.health = 100
     person.maxHealth = 100
     person.attack = person.attack*1.5
     person.heal = person.heal/2
 }
 function khoi_player(){
+    person.name = "Khoi"
     person.health = 150
     person.maxHealth = 150
-    person.attack = person.attack/3
+    person.attack = person.attack/2
     person.heal = person.heal * 2.5
 }
 function jian_player(){
+    person.name = "Jian"
     person.defence = person.defence*2.5
+    person.attack = person.attack/2
+    person.health = 200
+    person.maxHealth = 200
 }
 function alex_enemy(){
+    enemy.name = "Alex"
     enemy.health = 500
     enemy.maxHealth = 500
     enemy.attack = enemy.attack/2
     enemy.heal = 0 
 }
 function jorge_enemy(){
+    enemy.name = "Jorge"
     enemy.health = 100
     enemy.maxHealth = 100
     enemy.attack = enemy.attack*2
     enemy.heal = enemy.heal/2
 }
 function khoi_enemy(){
+    enemy.name = "Jorge"
     enemy.health = 150
     enemy.maxHealth = 150
     enemy.attack = enemy.attack/3
     enemy.heal = enemy.heal * 5
 }
 function jian_enemy(){
+    enemy.name = "Jian"
     enemy.defence = enemy.defence*2.5
+    enemy.attack = enemy.attack/2
+    enemy.health = 200
+    enemy.maxHealth = 200
 }
 const remainingCharacter = (player,computer) =>{
     document.getElementById('playercharacter').innerText = player
@@ -162,25 +175,24 @@ function pdamage(){
     person.health = person.health - (enemy.attack )
     playerhealth = person.health
     //health is whole number
-    if (person.health%2 != 0) {
-        if (person.health%2 >= .5){
-            //rounds up
-            person.health = (person.health - person.health%2) + 1
+    
+    if (person.health%2 >= .5){
+        //rounds up
+        person.health = (person.health - person.health%2) + 1
+        playerhealth = person.health
+        if (person.health <= 0){
+            person.health = 0
             playerhealth = person.health
-            if (person.health <= 0){
-                person.health = 0
-                playerhealth = person.health
-                person.canHeal = false
-            }
+            person.canHeal = false
         }
-        else{
-            person.health = (person.health - person.health%2)
+    }
+    else{
+        person.health = (person.health - person.health%2)
+        playerhealth = person.health
+        if (person.health <= 0){
+            person.health = 0
             playerhealth = person.health
-            if (person.health <= 0){
-                person.health = 0
-                playerhealth = person.health
-                person.canHeal = false
-            }
+            person.canHeal = false
         }
     }
 };
@@ -202,33 +214,71 @@ function pheal(){
         }
         // console.log(person.health)
     }
-    
+    else{
+        if (person.health <= 0){
+            person.health = 0
+            playerhealth = person.health
+            person.canHeal = false
+        }
+    }
+
+    //gimmick khoi
+    function e_pheal(){
+        var chance = Math.floor(Math.random() * 5) + 1
+        if (person.name == "Khoi"){
+            if (chance == 1){
+                enemy.health = enemy.health + person.heal/2
+                enemyhealth = enemy.health
+                if (enemy.health > enemy.maxHealth){
+                    enemy.health = enemy.maxHealth
+                    enemyhealth = enemy.health
+                } 
+            }
+        }
+        else{
+        }
+        console.log(chance)
+    }
+    e_pheal()
     
 };
 function pdefend(){
     person.health = person.health - 4.5*((enemy.attack)/(person.defence/2))
     //health is whole number
-    if (person.health%2 != 0) {
-        if (person.health%2 >= .5){
-            //rounds up
-            person.health = (person.health - person.health%2) + 1
+    if (person.health%2 >= .5){
+        //rounds up
+        person.health = (person.health - person.health%2) + 1
+        playerhealth = person.health
+        if (person.health <= 0){
+            person.health = 0
             playerhealth = person.health
-            if (person.health <= 0){
-                person.health = 0
-                playerhealth = person.health
-                person.canHeal = false
+            person.canHeal = false
+        }
+    }
+    else{
+        person.health = (person.health - person.health%2)
+        playerhealth = person.health
+        if (person.health <= 0){
+            person.health = 0
+            playerhealth = person.health
+            person.canHeal = false
+        }
+    }
+    // thorns test
+    function thorns(){
+        if (person.name == "Jian"){
+            enemy.health = enemy.health - 5
+            if (enemy.health <= 0){
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
             }
         }
         else{
-            person.health = (person.health - person.health%2)
-            playerhealth = person.health
-            if (person.health <= 0){
-                person.health = 0
-                playerhealth = person.health
-                person.canHeal = false
-            }
+            //pass
         }
     }
+    thorns()
 }
 function forfeit(){
     person.health = 0
@@ -300,7 +350,7 @@ function edefend(){
             }
         }
     }
-    // console.log(enemy.health)
+    
 }
 function hide(){
     var enemy = document.getElementById('enemy')
