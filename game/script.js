@@ -171,6 +171,7 @@ function showInConsole(){
     console.log(playerhealth + 'player')
     console.log(enemyhealth + 'enemy')
 }
+
 function pdamage(){
     person.health = person.health - (enemy.attack )
     playerhealth = person.health
