@@ -184,3 +184,7 @@ background-color: var(--greenerish);
 .instructions p{
  color: black;
 }
+
+@keyframes wave{
+    
+}
