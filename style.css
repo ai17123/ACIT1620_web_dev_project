@@ -106,7 +106,6 @@ h1, p, button{
     background-color: var(--turquoise);
     color: var(--white);
     text-align: center;
-    width: 100%;
     position: relative;
     font-size: 14px;
     padding: 10px;
