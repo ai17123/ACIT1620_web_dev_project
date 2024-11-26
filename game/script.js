@@ -52,6 +52,9 @@ characterOptions.forEach(option => {
         next()
     })
 })
+function exit(){
+    document.location.href = "../index.html"
+}
 function alex_player(){
     person.health = 500
     person.maxHealth = 500
