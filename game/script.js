@@ -225,7 +225,7 @@ function pheal(){
 
     //gimmick khoi
     function e_pheal(){
-        var chance = Math.floor(Math.random() * 5) + 1
+        var chance = Math.floor(Math.random() * 3) + 1
         if (person.name == "Khoi"){
             if (chance == 1){
                 enemy.health = enemy.health + person.heal
