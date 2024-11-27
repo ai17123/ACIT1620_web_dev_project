@@ -228,7 +228,7 @@ function pheal(){
         var chance = Math.floor(Math.random() * 5) + 1
         if (person.name == "Khoi"){
             if (chance == 1){
-                enemy.health = enemy.health + person.heal/2
+                enemy.health = enemy.health + person.heal
                 enemyhealth = enemy.health
                 if (enemy.health > enemy.maxHealth){
                     enemy.health = enemy.maxHealth
