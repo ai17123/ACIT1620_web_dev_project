@@ -50,6 +50,8 @@ header li:hover{
     position:absolute;
     transform:translateY();
     padding: 75px;
+    justify-content: center;
+
 
 }
 
@@ -93,6 +95,7 @@ h1, p, button{
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    
 }
 
 .container{
@@ -148,7 +151,6 @@ text-align: center;
 background-color: var(--tan);
 border-radius: 5px;
 max-width: 100%;
-margin: 20px auto;
 }
 
 .character-grid{
