@@ -129,15 +129,17 @@ h1, p, button{
 
 .instructions ol {
     padding-left: 20px;
+    color:var(--turquoise);
 }
 
 .instructions li {
     margin-bottom: 10px;
     font-size: 16px;
+    color: var(--turquoise);
 }
 
 .instructions p{
- color: black;
+ color: var(--turquoise);
 }
 
 .characters {
