@@ -145,9 +145,10 @@ padding: 20px;
 text-align: center;
 background-color: var(--tan);
 border-radius: 5px;
-max-width: 800px;
+max-width: 100%;
 margin: 20px auto;
 }
+
 .character-grid{
 display: grid;
 grid-template-columns: repeat(2,1fr);
@@ -160,7 +161,6 @@ text-align: center;
 padding:15px;
 background-color: var(--turquoise);
 border-radius: 8px;
-
 }
 
 .character-grid img{
