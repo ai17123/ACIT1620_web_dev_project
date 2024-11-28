@@ -152,3 +152,7 @@ h1, p, button{
     background-color: var(--greenerish);
     transform: scale(1.05);
 }
+
+.contact-form p {
+    font-size: 25px;
+}
