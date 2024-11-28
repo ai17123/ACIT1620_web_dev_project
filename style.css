@@ -204,7 +204,7 @@ margin: 10px 0;
 }
 
 #lore {
-    background-image: url(lore_background.jpg);
+    background-image: url(lore_adventurer.jpg);
     height: 100vh;
     background-size:cover;              /* fixed image to cover */
     background-position: center;    
