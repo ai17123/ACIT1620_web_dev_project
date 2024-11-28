@@ -175,3 +175,17 @@ font-size: 18px;
 color: var(--tangerine);
 margin: 10px 0;
 }
+
+#character_who_do_you_choose {
+    text-align: center;
+    color: var(--black);
+
+}
+
+#lore_div p{
+
+    font-size: 25px;
+    text-align: center;
+
+    
+}
