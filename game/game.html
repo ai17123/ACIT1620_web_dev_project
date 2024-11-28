@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webmon_game</title>
+    <title>Webmon_game
+    </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio src="fighting.ogg" controls autoplay loop style="display: none;"></audio>
     <div class="gamebackground">
         <div class="grass">
-    
+
         </div>
     </div>
     <div id="result">
@@ -22,12 +22,39 @@
             <button onclick="exit()">Exit</button>
         </div>
     </div>
-    <div class="menubar" id="menubar">
-        <button id="attack" class="action">attack</button>
-        <button id="heal" class="action">heal</button>
-        <button id="defend" class="action">defend</button>
-        <button id="forfeit" class="action">forfeit</button>
+    <div id="menu">
+        <div class="menubar" id="menubar">
+            <button onclick="showattackoptions()" class="action">attacks</button>
+            <button id="heal" class="action">heal</button>
+            <button id="defend" class="action">defend</button>
+            <button id="forfeit" class="action">forfeit</button>
+        </div>
+        <div class="menubar" id="menubaral">
+            <button id="attack1al" class="action">Shield Bash</button></button>
+            <button id="attack2al" class="action">Sacrifice</button>
+            <button id="attack3al" class="action">Self Destruct</button>
+            <button onclick="hideattackoptions()" class="action">Close</button>
+        </div>
+        <div class="menubar" id="menubarji">
+            <button id="attack1ji" class="action">Brawl!</button>
+            <button id="attack2ji" class="action">Signature</button>
+            <button id="attack3ji" class="action">Spikes</button>
+            <button onclick="hideattackoptions()" class="action">Close</button>
+        </div>
+        <div class="menubar" id="menubarjo">
+            <button id="attack1jo" class="action">Smirk</button>
+            <button id="attack2jo" class="action">Troll</button>
+            <button id="attack3jo" class="action">Last Resort</button>
+            <button onclick="hideattackoptions()" class="action">Close</button>
+        </div>
+        <div class="menubar" id="menubarkh">
+            <button id="attack1kh" class="action">Gulp!</button>
+            <button id="attack2kh" class="action">Slurp</button>
+            <button id="attack3kh" class="action">BIGGER GULP</button>
+            <button onclick="hideattackoptions()" class="action">Close</button>
+        </div>
     </div>
+    
     <div id="moves" class="count">moves done:</div>
     <main class="halfbody">
         <div class="player_side">

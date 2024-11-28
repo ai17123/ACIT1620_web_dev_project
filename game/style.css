@@ -7,6 +7,7 @@ body{
     margin:0px;
     padding:0px;
     height:100vh;
+    overflow:hidden
 }
 pre{
     position:absolute;
@@ -115,6 +116,24 @@ progress::-webkit-progress-bar {
     grid-row-gap:1vw;
     justify-content:center;
     border-radius:10px;
+    transition:all .5s;
+}
+
+#menubaral{
+    background-color:rgba(224, 31, 31, 0.249);
+    transform:translateY(150%)
+}
+#menubarji{
+    background-color:rgba(31, 224, 118, 0.249);
+    transform:translateY(150%)
+}
+#menubarjo{
+    background-color:rgba(31, 73, 224, 0.249);
+    transform:translateY(150%)
+}
+#menubarkh{
+    background-color:rgba(224, 31, 221, 0.249);
+    transform:translateY(150%)
 }
 
 .menupos2{

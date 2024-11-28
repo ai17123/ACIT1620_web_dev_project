@@ -5,7 +5,8 @@ person = {
     defence:50,
     heal:10,
     attack:25,
-    canHeal:true
+    canHeal:true,
+    thorns:5
 };
 
 enemy = {
@@ -16,6 +17,7 @@ enemy = {
     heal:10,
     attack:25,
     canHeal:true,
+    thorns:5
 };
 
 function next(){
@@ -23,6 +25,38 @@ function next(){
 }
 //count moves
 let moves = 0;
+
+function showattackoptions(){
+    if(person.name == "Alex"){
+        document.getElementById('menubaral').style.transform = 'translateY(0%)'
+    }
+    else if(person.name == 'Jian'){
+        document.getElementById('menubarji').style.transform = 'translateY(0%)'
+    }
+    else if(person.name == 'Jorge'){
+        document.getElementById('menubarjo').style.transform = 'translateY(0%)'
+    }
+    else if(person.name == 'Khoi'){
+        document.getElementById('menubarkh').style.transform = 'translateY(0%)'
+    }
+    document.getElementById('menubar').style.transform = 'translateY(150%)'
+}
+
+function hideattackoptions(){
+    if(person.name == "Alex"){
+        document.getElementById('menubaral').style.transform = 'translateY(150%)'
+    }
+    else if(person.name == 'Jian'){
+        document.getElementById('menubarji').style.transform = 'translateY(150%)'
+    }
+    else if(person.name == 'Jorge'){
+        document.getElementById('menubarjo').style.transform = 'translateY(150%)'
+    }
+    else if(person.name == 'Khoi'){
+        document.getElementById('menubarkh').style.transform = 'translateY(150%)'
+    }
+    document.getElementById('menubar').style.transform = 'translateY(0%)'
+}
 
 //character chosing function
 var playerCharacter = ''
@@ -106,7 +140,7 @@ function khoi_enemy(){
     enemy.health = 150
     enemy.maxHealth = 150
     enemy.attack = enemy.attack/3
-    enemy.heal = enemy.heal * 5
+    enemy.heal = enemy.heal * 2.5
     document.getElementById('charpicenemy').src='Khjoi_pfp.jpg'
 }
 function jian_enemy(){
@@ -178,69 +212,320 @@ function showInConsole(){
     console.log(enemyhealth + 'enemy')
 }
 
-function pdamage(){
-    person.health = person.health - (enemy.attack )
-    playerhealth = person.health
-    document.getElementById('playeraction').innerHTML = 'Attack!'
-    document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
-    //health is whole number
-    if (person.health%2 >= .5){
-        //rounds up
-        person.health = (person.health - person.health%2) + 1
+function pdamage() {
+    if (enemy.name == 'Alex') {
+        person.health = person.health - enemy.attack
         playerhealth = person.health
-        if (person.health <= 0){
-            person.health = 0
+        document.getElementById('enemyaction').innerHTML = 'Shield Bash!'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
             playerhealth = person.health
-            person.canHeal = false
-        }
-    }
-    else{
-        person.health = (person.health - person.health%2)
-        playerhealth = person.health
-        if (person.health <= 0){
-            person.health = 0
-            playerhealth = person.health
-            person.canHeal = false
-        }
-    }
-    function pcrit(){
-        var chance = Math.floor(Math.random() * 7) + 1
-        
-        if (enemy.name == "Jorge"){
-            if (chance == 1){
-                document.getElementById('playeraction').innerHTML = 'CRITICAL'
-                document.getElementById('playeraction').style.color = 'rgb(255, 0, 221)'
-                person.health = person.health - (enemy.attack)
+            if (person.health <= 0) {
+                person.health = 0
                 playerhealth = person.health
-                if (person.health%2 >= .5){
-                    //rounds up
-                    person.health = (person.health - person.health%2) + 1
-                    playerhealth = person.health
-                    if (person.health <= 0){
-                        person.health = 0
-                        playerhealth = person.health
-                        person.canHeal = false
-                    }
-                }
-                else{
-                    person.health = (person.health - person.health%2)
-                    playerhealth = person.health
-                    if (person.health <= 0){
-                        person.health = 0
-                        playerhealth = person.health
-                        person.canHeal = false
-                    }
-                }
+                person.canHeal = false
             }
-            else{
-
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
             }
         }
     }
-    pcrit()
-    
-
+    else if (enemy.name == 'Jian') {
+        person.health = person.health - enemy.attack
+        playerhealth = person.health
+        document.getElementById('enemyaction').innerHTML = 'Brawl!'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Jorge') {
+        person.health = person.health - enemy.attack
+        playerhealth = person.health
+        document.getElementById('enemyaction').innerHTML = 'Smirk!'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Khoi') {
+        person.health = person.health - enemy.attack
+        playerhealth = person.health
+        document.getElementById('enemyaction').innerHTML = 'Gulp!'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
 };
+function pdamage2() {
+    if (enemy.name == 'Alex') {
+        person.health = person.health - enemy.attack * 1.5
+        playerhealth = person.health
+        enemy.health = enemyhealth - 50
+        enemyhealth = enemy.health
+        document.getElementById('enemyaction').innerHTML = 'Sacrifice'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Jian') {
+        person.health = person.health - (enemy.attack + 10)
+        playerhealth = person.health
+        document.getElementById('enemyaction').innerHTML = 'Signature'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Jorge') {
+        person.health = person.health - enemy.attack
+        playerhealth = person.health
+        enemy.health = enemyhealth + 10
+        enemyhealth = enemy.health
+        document.getElementById('enemyaction').innerHTML = 'Troll'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Khoi') {
+        person.health = person.health - enemy.attack 
+        playerhealth = person.health
+        enemy.health = enemyhealth + 10
+        enemyhealth = enemy.health
+        document.getElementById('enemyaction').innerHTML = 'Sacrifice'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+};
+function pdamage3() {
+    if (enemy.name == 'Alex') {
+        person.health = 0
+        enemy.health = 0 
+        document.getElementById('enemyaction').innerHTML = 'Self Descrutct'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Jian') {
+        enemy.thorns = enemy.thorns * 2
+        document.getElementById('enemyaction').innerHTML = 'Spikes'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Jorge') {
+        enemy.attack = enemy.attack * 5
+        enemy.health = 25
+        enemyhealth = enemy.health
+        document.getElementById('enemyaction').innerHTML = 'Last Resort'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+    else if (enemy.name == 'Khoi') {
+        enemy.heal = enemy.heal * 2
+        enemy.health = enemyhealth - 25
+        enemyhealth = enemy.health
+        document.getElementById('enemyaction').innerHTML = 'BIGGER GULP'
+        document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+        if (person.health % 2 >= .5) {
+            //rounds up
+            person.health = (person.health - person.health % 2) + 1
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else {
+            person.health = (person.health - person.health % 2)
+            playerhealth = person.health
+            if (person.health <= 0) {
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+    }
+};
+
 function pheal(){
     document.getElementById('playeraction').innerHTML = 'Recovered'
     document.getElementById('playeraction').style.color = 'rgb(11, 197, 11)'
@@ -321,7 +606,7 @@ function pdefend(){
         if (person.name == "Jian"){
             document.getElementById('playeraction').innerHTML = 'THORNS'
             document.getElementById('playeraction').style.color = 'rgb(61, 37, 199)'
-            enemy.health = enemy.health - 5
+            enemy.health = enemy.health - person.thorns
             if (enemy.health <= 0){
                 enemy.health = 0
                 enemyhealth = enemy.health
@@ -341,68 +626,320 @@ function forfeit(){
     person.canHeal = false
     // console.log(person.health)
 }
-function edamage(){
-    enemy.health = enemy.health - (person.attack )
-    enemyhealth = enemy.health
-    document.getElementById('enemyaction').innerHTML = 'Attack!'
-    document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
-    
-    if (enemy.health%2 >= .5){
-        //rounds up
-        enemy.health = (enemy.health - enemy.health%2) + 1
+function edamage() {
+    if (person.name == 'Alex') {
+        enemy.health = enemy.health - person.attack
         enemyhealth = enemy.health
-        if (enemy.health <= 0){
-            enemy.health = 0
+        document.getElementById('playeraction').innerHTML = 'Shield Bash!'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
             enemyhealth = enemy.health
-            enemy.canHeal = false
-        }
-    }
-    else{
-        enemy.health = (enemy.health - enemy.health%2)
-        enemyhealth = enemy.health
-        if (enemy.health <= 0){
-            enemy.health = 0
-            enemyhealth = enemy.health
-            enemy.canHeal = false
-        }
-    }
-    function ecrit(){
-        var chance = Math.floor(Math.random() * 7) + 1
-        if (person.name == "Jorge"){
-            if (chance == 1){
-                document.getElementById('enemyaction').innerHTML = 'CRITICAL'
-                document.getElementById('enemyaction').style.color = 'rgb(255, 0, 221)'
-                enemy.health = enemy.health - (person.attack )
+            if (enemy.health <= 0) {
+                enemy.health = 0
                 enemyhealth = enemy.health
-                if (enemy.health%2 >= .5){
-                    //rounds up
-                    enemy.health = (enemy.health - enemy.health%2) + 1
-                    enemyhealth = enemy.health
-                    if (enemy.health <= 0){
-                        enemy.health = 0
-                        enemyhealth = enemy.health
-                        enemy.canHeal = false
-                    }
-                }
-                else{
-                    enemy.health = (enemy.health - enemy.health%2)
-                    enemyhealth = enemy.health
-                    if (enemy.health <= 0){
-                        enemy.health = 0
-                        enemyhealth = enemy.health
-                        enemy.canHeal = false
-                    }
-                }
+                enemy.canHeal = false
             }
         }
-        else{
-
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
         }
     }
-    ecrit()
-    
-    
+    else if (person.name == 'Jian') {
+        enemy.health = enemy.health - person.attack
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Brawl!'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Jorge') {
+        enemy.health = enemy.health - person.attack
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Smirk!'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Khoi') {
+        enemy.health = enemy.health - person.attack
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Gulp!'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
 };
+function edamage2() {
+    if (person.name == 'Alex') {
+        enemy.health = enemy.health - person.attack * 1.5
+        enemyhealth = enemy.health
+        enemy.health = enemyhealth - 50
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Sacrifice'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Jian') {
+        enemy.health = enemy.health - (person.attack + 10)
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Signature'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Jorge') {
+        enemy.health = enemy.health - person.attack
+        enemyhealth = enemy.health
+        enemy.health = enemyhealth + 10
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Troll'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Khoi') {
+        enemy.health = enemy.health - person.attack
+        enemyhealth = enemy.health
+        enemy.health = enemyhealth + 10
+        enemyhealth = enemy.health
+        document.getElementById('playeraction').innerHTML = 'Slurp'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+};
+function edamage3() {
+    if (person.name == 'Alex') {
+        person.health = 0
+        enemy.health = 0 
+        document.getElementById('playeraction').innerHTML = 'Self Descruct'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Jian') {
+        enemy.thorns = enemy.thorns * 2
+        document.getElementById('playeraction').innerHTML = 'Spikes'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Jorge') {
+        person.attack = person.attack * 5
+        person.health = 25
+        playerhealth = person.health
+        document.getElementById('playeraction').innerHTML = 'Last Resort'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+    else if (person.name == 'Khoi') {
+        person.heal = person.heal * 2
+        person.health = person.health - 25
+        playerhealth = person.health
+        document.getElementById('playeraction').innerHTML = 'BIGGER GULP'
+        document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+        if (enemy.health % 2 >= .5) {
+            //rounds up
+            enemy.health = (enemy.health - enemy.health % 2) + 1
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+        else {
+            enemy.health = (enemy.health - enemy.health % 2)
+            enemyhealth = enemy.health
+            if (enemy.health <= 0) {
+                enemy.health = 0
+                enemyhealth = enemy.health
+                enemy.canHeal = false
+            }
+        }
+    }
+};
+
 function eheal(){
     document.getElementById('enemyaction').innerHTML = 'Recovered'
     document.getElementById('enemyaction').style.color = 'rgb(11, 197, 11)'
@@ -473,7 +1010,7 @@ function edefend(){
         if (enemy.name == "Jian"){
             document.getElementById('enemyaction').innerHTML = 'THORNS'
             document.getElementById('enemyaction').style.color = 'rgb(61, 37, 199)'
-            person.health = person.health - 5
+            person.health = person.health - enemy.thorns
             if (person.health <= 0){
                 person.health = 0
                 playerhealth = person.health
@@ -491,7 +1028,7 @@ function edefend(){
 function hide(){
     var enemy = document.getElementById('enemy')
     var player = document.getElementById('player')
-    var menubar = document.getElementById('menubar')
+    var menubar = document.getElementById('menu')
     var moves = document.getElementById('moves')
     var result = document.getElementById('result')
     enemy.style.display = 'none'
@@ -514,12 +1051,26 @@ const game = () => {
     const check = document.getElementById('check')
     //function to play game
     const playWebmon = () =>{
-        const attkBtn = document.getElementById('attack');
+        const attkBtn1 = document.getElementById('attack1al');
+        const attkBtn2 = document.getElementById('attack2al');
+        const attkBtn3 = document.getElementById('attack3al');
+        const attkBtn4 = document.getElementById('attack1ji');
+        const attkBtn5 = document.getElementById('attack2ji');
+        const attkBtn6 = document.getElementById('attack3ji');
+        const attkBtn7 = document.getElementById('attack1jo');
+        const attkBtn8 = document.getElementById('attack2jo');
+        const attkBtn9 = document.getElementById('attack3jo');
+        const attkBtn10 = document.getElementById('attack1kh');
+        const attkBtn11 = document.getElementById('attack2kh');
+        const attkBtn12 = document.getElementById('attack3kh');
         const healBtn = document.getElementById('heal');
         const defBtn = document.getElementById('defend');
         const forfeitBtn = document.getElementById('forfeit')
-        const playerOptions = [ attkBtn, healBtn, defBtn, forfeitBtn]
-        const computerOptions = ['attack','attack','attack', 'defend', 'heal']
+        const playerOptions = [ attkBtn1, attkBtn2, attkBtn3,attkBtn4, attkBtn5, attkBtn6,attkBtn7, attkBtn8, attkBtn9,attkBtn10, attkBtn11, attkBtn12, healBtn, defBtn, forfeitBtn]
+        const computerOptions = ['Attack1','Attack2','Attack3', 'defend', 'heal']
+        // const computerOptionsji = ['Brawl','Signature','Spikes', 'defend', 'heal']
+        // const computerOptionsjo = ['Smirk','Troll','Last Resort', 'defend', 'heal']
+        // const computerOptionskh = ['Gulp!','Slurp','BIGGER GULP', 'defend', 'heal']
 
         playerOptions.forEach(option => {
             option.addEventListener('click', function(){
@@ -532,6 +1083,7 @@ const game = () => {
                 //random computer choice
                 const compOption = Math.floor(Math.random() * 5)
                 const compChoice = computerOptions[compOption]
+                
 
                 //shows outcomes 
                 outcome(this.innerText, compChoice)
@@ -545,12 +1097,20 @@ const game = () => {
     }
 
     const outcome = (player, computer) =>{
-        player = player.toLowerCase();
-        computer = computer.toLowerCase();
-        if (player === computer){
-            if(player == 'attack'){
+        if ((player == 'Shield Bash' || player == 'Brawl!' || player == 'Smirk' || player == 'Gulp!') && (computer == 'Attack1' || computer == 'Attack2' || computer == 'Attack3')){
+            if(player == 'Shield Bash' || player == 'Brawl!' || player == 'Smirk' || player == 'Gulp!'){
                 pdamage();
                 edamage()
+                sethealth()
+            }
+            else if(player == 'Sacrifice' || player == 'Signature' || player == 'Troll' || player == 'Slurp'){
+                pdamage2();
+                edamage2()
+                sethealth()
+            }
+            else if(player == 'Self Destruct' || player =='Spikes' || player == 'Last Resort' || player == 'BIGGER GULP'){
+                pdamage3();
+                edamage3()
                 sethealth()
             }
             else if (player == 'defend'){
@@ -562,10 +1122,10 @@ const game = () => {
                 sethealth()
             } 
         }
-        else if(player == 'attack'){
+        else if(player == 'Shield Bash' || player == 'Brawl!' || player == 'Smirk' || player == 'Gulp!'){
             if (computer == 'defend'){ 
                 edefend()
-                document.getElementById('playeraction').innerHTML = 'Attack!'
+                document.getElementById('playeraction').innerHTML = 'Dink'
                 document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
@@ -575,10 +1135,49 @@ const game = () => {
                 sethealth()
             }
         }
+        else if(player == 'Sacrifice' || player == 'Signature' || player == 'Troll' || player == 'Slurp'){
+            if (computer == 'defend'){ 
+                edefend()
+                document.getElementById('playeraction').innerHTML = 'Dink'
+                document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+                sethealth()
+                
+            }
+            else{
+                edamage2()
+                eheal()
+                sethealth()
+            }
+        }
+        else if(player == 'Self Destruct' || player =='Spikes' || player == 'Last Resort' || player == 'BIGGER GULP'){
+            if (computer == 'defend'){ 
+                edefend()
+                document.getElementById('playeraction').innerHTML = 'Dink'
+                document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
+                sethealth()
+            }
+            else{
+                edamage3()
+                eheal()
+                sethealth()
+            }
+        }
         else if(player == 'defend'){
-            if(computer == 'attack'){
+            if(computer == 'Attack1'){
                 pdefend()
-                document.getElementById('enemyaction').innerHTML = 'Attack!'
+                document.getElementById('enemyaction').innerHTML = 'Dink'
+                document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+                sethealth()
+            }
+            else if(computer =='Attack2'){
+                pdefend()
+                document.getElementById('enemyaction').innerHTML = 'Dink'
+                document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+                sethealth()
+            }
+            else if(computer == 'Attack3'){
+                pdefend()
+                document.getElementById('enemyaction').innerHTML = 'Dink'
                 document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
@@ -590,8 +1189,18 @@ const game = () => {
             }
         }
         else if(player == 'heal'){
-            if (computer =='attack'){
+            if (computer == 'Attack1'){
                 pdamage()
+                pheal()
+                sethealth()
+            }
+            else if (computer == 'Attack2'){
+                pdamage2()
+                pheal()
+                sethealth()
+            }
+            else if (computer == 'Attack3'){
+                pdamage3()
                 pheal()
                 sethealth()
             }
