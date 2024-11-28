@@ -225,7 +225,7 @@ margin: 10px 0;
     text-indent: 75px;
 }
 
-.stats,h1 {
+.stats {
     display: flex;
     background-color: var(--tan);
     color: var(--turquoise);
