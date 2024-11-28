@@ -189,3 +189,7 @@ margin: 10px 0;
 
     
 }
+
+#lore {
+    background-image: url(lore_background.jpg);
+}
