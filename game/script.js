@@ -318,7 +318,7 @@ function pdamage2() {
     if (enemy.name == 'Alex') {
         person.health = person.health - enemy.attack * 1.5
         playerhealth = person.health
-        enemy.health = enemyhealth - 50
+        enemy.health = enemyhealth - 100
         enemyhealth = enemy.health
         document.getElementById('enemyaction').innerHTML = 'Sacrifice'
         document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
@@ -397,9 +397,9 @@ function pdamage2() {
     else if (enemy.name == 'Khoi') {
         person.health = person.health - enemy.attack 
         playerhealth = person.health
-        person.health = playerhealth + 10
+        person.health = person.health + 10
         playerhealth = person.health
-        document.getElementById('enemyaction').innerHTML = 'Sacrifice'
+        document.getElementById('enemyaction').innerHTML = 'Slurp'
         document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
         if (person.health % 2 >= .5) {
             //rounds up
@@ -732,8 +732,8 @@ function edamage2() {
     if (person.name == 'Alex') {
         enemy.health = enemy.health - person.attack * 1.5
         enemyhealth = enemy.health
-        enemy.health = enemyhealth - 50
-        enemyhealth = enemy.health
+        person.health = person.health - 100
+        playerhealth = person.health
         document.getElementById('playeraction').innerHTML = 'Sacrifice'
         document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
         if (enemy.health % 2 >= .5) {
