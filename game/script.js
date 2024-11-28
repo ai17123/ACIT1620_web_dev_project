@@ -316,7 +316,7 @@ function pdamage() {
 };
 function pdamage2() {
     if (enemy.name == 'Alex') {
-        person.health = person.health - enemy.attack * 1.5
+        person.health = person.health - enemy.attack * 2
         playerhealth = person.health
         enemy.health = enemyhealth - 100
         enemyhealth = enemy.health
@@ -424,9 +424,9 @@ function pdamage2() {
 };
 function pdamage3() {
     if (enemy.name == 'Alex') {
-        person.health = 0
-        enemy.health = 0 
-        document.getElementById('enemyaction').innerHTML = 'Self Descrutct'
+        person.health = 1
+        enemy.health = 1 
+        document.getElementById('enemyaction').innerHTML = 'Self Destruct'
         document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
         if (person.health % 2 >= .5) {
             //rounds up
@@ -729,8 +729,8 @@ function edamage() {
     }
 };
 function edamage2() {
-    if (person.name == 'Alex') {
-        enemy.health = enemy.health - person.attack * 1.5
+    if (person.name == 'Alex'){
+        enemy.health = enemy.health - person.attack * 2
         enemyhealth = enemy.health
         person.health = person.health - 100
         playerhealth = person.health
@@ -838,9 +838,9 @@ function edamage2() {
 };
 function edamage3() {
     if (person.name == 'Alex') {
-        person.health = 0
-        enemy.health = 0 
-        document.getElementById('playeraction').innerHTML = 'Self Descruct'
+        person.health = 1
+        enemy.health = 1 
+        document.getElementById('playeraction').innerHTML = 'Self Destruct'
         document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
         if (enemy.health % 2 >= .5) {
             //rounds up
