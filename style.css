@@ -95,16 +95,12 @@ h1, p, button{
 
 .info{
     position:relative;
-    width:100%;
     background-image:linear-gradient(to bottom right, var(--greenish), var(--greenerish));
-    height:100vh;
     display: flex;
     align-items: center;  /* fixed image to align center */
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
-    font-size: 12px;
-    
 }
 
 .container{
