@@ -80,7 +80,6 @@ function khoi_player(){
 }
 function jian_player(){
     person.name = "Jian"
-    person.defence = person.defence*2.5
     person.attack = person.attack/2
     person.health = 200
     person.maxHealth = 200
@@ -112,7 +111,6 @@ function khoi_enemy(){
 }
 function jian_enemy(){
     enemy.name = "Jian"
-    enemy.defence = enemy.defence*2.5
     enemy.attack = enemy.attack/2
     enemy.health = 200
     enemy.maxHealth = 200
@@ -184,7 +182,6 @@ function pdamage(){
     person.health = person.health - (enemy.attack )
     playerhealth = person.health
     //health is whole number
-    
     if (person.health%2 >= .5){
         //rounds up
         person.health = (person.health - person.health%2) + 1
@@ -204,6 +201,38 @@ function pdamage(){
             person.canHeal = false
         }
     }
+    function pcrit(){
+        var chance = Math.floor(Math.random() * 7) + 1
+        if (enemy.name == "Jorge"){
+            if (chance == 1){
+                person.health = person.health - (enemy.attack)
+                playerhealth = person.health
+                if (person.health%2 >= .5){
+                    //rounds up
+                    person.health = (person.health - person.health%2) + 1
+                    playerhealth = person.health
+                    if (person.health <= 0){
+                        person.health = 0
+                        playerhealth = person.health
+                        person.canHeal = false
+                    }
+                }
+                else{
+                    person.health = (person.health - person.health%2)
+                    playerhealth = person.health
+                    if (person.health <= 0){
+                        person.health = 0
+                        playerhealth = person.health
+                        person.canHeal = false
+                    }
+                }
+            }
+            else{
+
+            }
+        }
+    }
+    pcrit()
 };
 function pheal(){
     if(person.canHeal){
@@ -274,7 +303,7 @@ function pdefend(){
         }
     }
     // thorns test
-    function thorns(){
+    function pthorns(){
         if (person.name == "Jian"){
             enemy.health = enemy.health - 5
             if (enemy.health <= 0){
@@ -287,7 +316,7 @@ function pdefend(){
             //pass
         }
     }
-    thorns()
+    pthorns()
 }
 function forfeit(){
     person.health = 0
@@ -317,6 +346,39 @@ function edamage(){
             enemy.canHeal = false
         }
     }
+    function ecrit(){
+        var chance = Math.floor(Math.random() * 7) + 1
+        if (person.name == "Jorge"){
+            if (chance == 1){
+                enemy.health = enemy.health - (person.attack )
+                enemyhealth = enemy.health
+                if (enemy.health%2 >= .5){
+                    //rounds up
+                    enemy.health = (enemy.health - enemy.health%2) + 1
+                    enemyhealth = enemy.health
+                    if (enemy.health <= 0){
+                        enemy.health = 0
+                        enemyhealth = enemy.health
+                        enemy.canHeal = false
+                    }
+                }
+                else{
+                    enemy.health = (enemy.health - enemy.health%2)
+                    enemyhealth = enemy.health
+                    if (enemy.health <= 0){
+                        enemy.health = 0
+                        enemyhealth = enemy.health
+                        enemy.canHeal = false
+                    }
+                }
+            }
+        }
+        else{
+
+        }
+    }
+    ecrit()
+    
 };
 function eheal(){
     if(enemy.canHeal){
@@ -333,6 +395,24 @@ function eheal(){
         } 
     }
     // console.log(enemy.health)
+    //1 in 3 chance to heal player
+    function e_eheal(){
+        var chance = Math.floor(Math.random() * 3) + 1
+        if (enemy.name == "Khoi"){
+            if (chance == 1){
+                person.health = person.health + enemy.heal
+                playerhealth = person.health
+                if (person.health > person.maxHealth){
+                    person.health = person.maxHealth
+                    playerhealth = person.health
+                } 
+            }
+        }
+        else{
+        }
+        console.log(chance)
+    }
+    e_eheal()
 };
 function edefend(){
     enemy.health = enemy.health - 4.5*((person.attack )/(enemy.defence/2))
@@ -359,6 +439,20 @@ function edefend(){
             }
         }
     }
+    function ethorns(){
+        if (enemy.name == "Jian"){
+            person.health = person.health - 5
+            if (person.health <= 0){
+                person.health = 0
+                playerhealth = person.health
+                person.canHeal = false
+            }
+        }
+        else{
+            //pass
+        }
+    }
+    ethorns()
     
 }
 function hide(){
