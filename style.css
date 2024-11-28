@@ -187,3 +187,38 @@ background-color: var(--greenerish);
  color: black;
 }
 
+.characters {
+padding: 20px;
+text-align: center;
+background-color: var(--tan);
+border-radius: 5px;
+max-width: 800px;
+margin: 20px auto;
+}
+.character-grid{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 20px;
+justify-items: center;
+}
+
+.character-grid div {
+text-align: center;
+padding:15px;
+background-color: var(--turquoise);
+border-radius: 8px;
+
+}
+
+.character-grid img{
+ width: 100px;
+ height: 100px;
+ border-radius: 50%;
+ margin-bottom: 10px;
+}
+
+.character-grid h3{
+font-size: 18px;
+color: var(--tangerine);
+margin: 10px 0;
+}
