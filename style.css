@@ -103,6 +103,7 @@ h1, p, button{
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    font-size: 12px;
     
 }
 
