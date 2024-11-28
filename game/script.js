@@ -60,6 +60,7 @@ function alex_player(){
     person.maxHealth = 500
     person.attack = person.attack/2
     person.heal = 0 
+    document.getElementById('charpicplayer').src='Alex_pfp.jpg'
 }
 function jorge_player(){
     person.name = "Jorge"
@@ -67,6 +68,7 @@ function jorge_player(){
     person.maxHealth = 100
     person.attack = person.attack*1.5
     person.heal = person.heal/2
+    document.getElementById('charpicplayer').src='Jorge_pfp.jpg'
 }
 function khoi_player(){
     person.name = "Khoi"
@@ -74,6 +76,7 @@ function khoi_player(){
     person.maxHealth = 150
     person.attack = person.attack/2
     person.heal = person.heal * 2.5
+    document.getElementById('charpicplayer').src='Khjoi_pfp.jpg'
 }
 function jian_player(){
     person.name = "Jian"
@@ -81,6 +84,7 @@ function jian_player(){
     person.attack = person.attack/2
     person.health = 200
     person.maxHealth = 200
+    document.getElementById('charpicplayer').src='Jian_pfp.jpg'
 }
 function alex_enemy(){
     enemy.name = "Alex"
@@ -88,6 +92,7 @@ function alex_enemy(){
     enemy.maxHealth = 500
     enemy.attack = enemy.attack/2
     enemy.heal = 0 
+    document.getElementById('charpicenemy').src='Alex_pfp.jpg'
 }
 function jorge_enemy(){
     enemy.name = "Jorge"
@@ -95,6 +100,7 @@ function jorge_enemy(){
     enemy.maxHealth = 100
     enemy.attack = enemy.attack*2
     enemy.heal = enemy.heal/2
+    document.getElementById('charpicenemy').src='Jorge_pfp.jpg'
 }
 function khoi_enemy(){
     enemy.name = "Jorge"
@@ -102,6 +108,7 @@ function khoi_enemy(){
     enemy.maxHealth = 150
     enemy.attack = enemy.attack/3
     enemy.heal = enemy.heal * 5
+    document.getElementById('charpicenemy').src='Khjoi_pfp.jpg'
 }
 function jian_enemy(){
     enemy.name = "Jian"
@@ -109,6 +116,7 @@ function jian_enemy(){
     enemy.attack = enemy.attack/2
     enemy.health = 200
     enemy.maxHealth = 200
+    document.getElementById('charpicenemy').src='Jian_pfp.jpg'
 }
 const remainingCharacter = (player,computer) =>{
     document.getElementById('playercharacter').innerText = player
