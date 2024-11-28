@@ -225,13 +225,11 @@ margin: 10px 0;
     text-indent: 75px;
 }
 
-.stats {
+.stats,h1 {
     display: flex;
-    background-color: var(--tangerine);
-    color: white;
+    background-color: var(--tan);
+    color: var(--turquoise);
     width: 100%;
-
-
 }
 
 .stats li ul {
