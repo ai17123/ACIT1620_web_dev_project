@@ -215,4 +215,13 @@ margin: 10px 0;
     text-indent: 75px;
 }
 
+.stats {
+display: flex;
+background-color: var(--tan);
+
+}
+
+.stats li ul {
+color: var(--turquoise)
+}
 
