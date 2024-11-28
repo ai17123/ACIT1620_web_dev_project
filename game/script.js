@@ -205,8 +205,11 @@ function pdamage(){
     }
     function pcrit(){
         var chance = Math.floor(Math.random() * 7) + 1
+        
         if (enemy.name == "Jorge"){
             if (chance == 1){
+                document.getElementById('playeraction').innerHTML = 'CRITICAL'
+                document.getElementById('playeraction').style.color = 'rgb(255, 0, 221)'
                 person.health = person.health - (enemy.attack)
                 playerhealth = person.health
                 if (person.health%2 >= .5){
@@ -235,7 +238,7 @@ function pdamage(){
         }
     }
     pcrit()
-    document.getElementById('playeraction').style.animation = 'None'
+    
 
 };
 function pheal(){
@@ -271,6 +274,8 @@ function pheal(){
         var chance = Math.floor(Math.random() * 3) + 1
         if (person.name == "Khoi"){
             if (chance == 1){
+                document.getElementById('playeraction').innerHTML = 'Splash'
+                document.getElementById('playeraction').style.color = 'rgb(255, 187, 0)'
                 enemy.health = enemy.health + person.heal
                 enemyhealth = enemy.health
                 if (enemy.health > enemy.maxHealth){
@@ -284,7 +289,7 @@ function pheal(){
         console.log(chance)
     }
     e_pheal()
-    document.getElementById('playeraction').style.animation = 'None'
+    
     
 };
 function pdefend(){
@@ -314,6 +319,8 @@ function pdefend(){
     // thorns test
     function pthorns(){
         if (person.name == "Jian"){
+            document.getElementById('playeraction').innerHTML = 'THORNS'
+            document.getElementById('playeraction').style.color = 'rgb(61, 37, 199)'
             enemy.health = enemy.health - 5
             if (enemy.health <= 0){
                 enemy.health = 0
@@ -326,7 +333,7 @@ function pdefend(){
         }
     }
     pthorns()
-    document.getElementById('playeraction').style.animation = 'None'
+    
 }
 function forfeit(){
     person.health = 0
@@ -363,6 +370,8 @@ function edamage(){
         var chance = Math.floor(Math.random() * 7) + 1
         if (person.name == "Jorge"){
             if (chance == 1){
+                document.getElementById('enemyaction').innerHTML = 'CRITICAL'
+                document.getElementById('enemyaction').style.color = 'rgb(255, 0, 221)'
                 enemy.health = enemy.health - (person.attack )
                 enemyhealth = enemy.health
                 if (enemy.health%2 >= .5){
@@ -391,7 +400,7 @@ function edamage(){
         }
     }
     ecrit()
-    document.getElementById('enemyaction').style.animation = 'None'
+    
     
 };
 function eheal(){
@@ -416,6 +425,8 @@ function eheal(){
         var chance = Math.floor(Math.random() * 3) + 1
         if (enemy.name == "Khoi"){
             if (chance == 1){
+                document.getElementById('enemyaction').innerHTML = 'Splash'
+                document.getElementById('enemyaction').style.color = 'rgb(255, 187, 0)'
                 person.health = person.health + enemy.heal
                 playerhealth = person.health
                 if (person.health > person.maxHealth){
@@ -429,7 +440,7 @@ function eheal(){
         console.log(chance)
     }
     e_eheal()
-    document.getElementById('enemyaction').style.animation = 'None'
+    
 };
 function edefend(){
     enemy.health = enemy.health - 4.5*((person.attack )/(enemy.defence/2))
@@ -460,6 +471,8 @@ function edefend(){
     }
     function ethorns(){
         if (enemy.name == "Jian"){
+            document.getElementById('enemyaction').innerHTML = 'THORNS'
+            document.getElementById('enemyaction').style.color = 'rgb(61, 37, 199)'
             person.health = person.health - 5
             if (person.health <= 0){
                 person.health = 0
@@ -472,7 +485,7 @@ function edefend(){
         }
     }
     ethorns()
-    document.getElementById('enemyaction').style.animation = 'None'
+    
     
 }
 function hide(){
@@ -494,7 +507,6 @@ function sethealth(){
     document.getElementById("healthenemy").value = enemy.health;
     document.getElementById('ehealth_count').innerHTML = enemy.health + "/" + enemy.maxHealth
     document.getElementById("healthenemy").max = enemy.maxHealth;
-
 }
 //game function to play the game
 const game = () => {
@@ -537,39 +549,27 @@ const game = () => {
         computer = computer.toLowerCase();
         if (player === computer){
             if(player == 'attack'){
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdamage();
                 edamage()
                 sethealth()
             }
             else if (player == 'defend'){
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 //pass 
-                document.getElementById('enemyaction').style.animation = 'None'
-                document.getElementById('playeraction').style.animation = 'None'
             }
             else{
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 eheal()
                 pheal()
                 sethealth()
             } 
         }
         else if(player == 'attack'){
-            if (computer == 'defend'){
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
+            if (computer == 'defend'){ 
                 edefend()
                 document.getElementById('playeraction').innerHTML = 'Attack!'
                 document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
             else{
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 edamage()
                 eheal()
                 sethealth()
@@ -577,31 +577,27 @@ const game = () => {
         }
         else if(player == 'defend'){
             if(computer == 'attack'){
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdefend()
                 document.getElementById('enemyaction').innerHTML = 'Attack!'
                 document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
             else{
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('playeraction').innerHTML = 'BLOCKED'
+                document.getElementById('playeraction').style.color = 'rgb(17, 85, 233)'
                 eheal()
                 sethealth()
             }
         }
         else if(player == 'heal'){
             if (computer =='attack'){
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdamage()
                 pheal()
                 sethealth()
             }
             else{
-                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
-                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').innerHTML = 'BLOCKED'
+                document.getElementById('enemyaction').style.color = 'rgb(17, 85, 233)'
                 pheal()
                 sethealth()
             }
