@@ -136,7 +136,7 @@ function jorge_enemy(){
     document.getElementById('charpicenemy').src='Jorge_pfp.jpg'
 }
 function khoi_enemy(){
-    enemy.name = "Jorge"
+    enemy.name = "Khoi"
     enemy.health = 150
     enemy.maxHealth = 150
     enemy.attack = enemy.attack/3
