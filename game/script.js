@@ -397,8 +397,8 @@ function pdamage2() {
     else if (enemy.name == 'Khoi') {
         person.health = person.health - enemy.attack 
         playerhealth = person.health
-        enemy.health = enemyhealth + 10
-        enemyhealth = enemy.health
+        person.health = playerhealth + 10
+        playerhealth = person.health
         document.getElementById('enemyaction').innerHTML = 'Sacrifice'
         document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
         if (person.health % 2 >= .5) {
