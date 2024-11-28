@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    font-weight:bold;
+    font-family: "Pixelify Sans" ;
+    overflow-x:hide;
+}
+:root{
+    --tangerine:#DEAA79;
+    --tan:#FFE6A9;
+    --greenish:#B1C29E;
+    --greenerish:#b8e486;
+    --trans_greenish:#b1c29e83;
+    --turquoise:#659287;
+    --white:#ffffff;
+    --black:#000000;
+}
+
+header{ 
+    z-index:10;
+    background-color:var(--turquoise);
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+header ul{
+    display:flex;
+    list-style-type:none;
+    margin:0px;
+}
+
+header li{
+    padding:15px;
+}
+
+header a{
+    color:var(--white);
+    text-decoration: none;
+    font-size:20px;
+}
+
+header li:hover{
+    background-image:linear-gradient(to bottom right, var(--greenish), var(--tangerine));
+}
+
+.overlay{
+    position:absolute;
+    transform:translateY();
+    padding: 75px;
+
+}
+
+.overlay h1{
+    font-size:50px;
+}
+
+h1, p, button{
+    color:var(--white)
+}
+
+.overlay button{
+    border:1px solid var(--tangerine);
+    background-color: transparent;
+    padding:25px 75px 25px 15px;
+    font-weight:bold;
+    font-size:25px;
+    font-family: "Pixelify Sans";
+}
+
+.overlay button:hover{
+    background-color:var(--trans_greenish)
+}
+
+.info{
+    position:relative;
+    width:100%;
+    background-image:linear-gradient(to bottom right, var(--greenish), var(--greenerish));
+    height:100vh;
+    display: flex;
+    align-items: center;  /* fixed image to align center */
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container{
+    border:2px solid white;
+    width:25%;
+    height:25%;
+    display:flex;
+    justify-content: center; /* fixed to align center */
+    align-items: center;
+}
+.footer{
+    background-color: var(--turquoise);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    font-size: 14px;
+    padding: 10px;
+    bottom: 0px;
+    font-family:"Pixelify Sans",sans-serif;
+    }
+.contact-form {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    text-align: center;
+    color: var(--white); 
+}
+
+.contact-form form {
+    background-color: rgba(--greenish); 
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.contact-form input, 
+.contact-form textarea, 
+.contact-form button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    background-color: var(--white); 
+    color: var(--black);
+}
+
+.contact-form button {
+    background-color: var(--tangerine);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--greenerish);
+    transform: scale(1.05);
+}
