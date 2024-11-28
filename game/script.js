@@ -181,6 +181,8 @@ function showInConsole(){
 function pdamage(){
     person.health = person.health - (enemy.attack )
     playerhealth = person.health
+    document.getElementById('playeraction').innerHTML = 'Attack!'
+    document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
     //health is whole number
     if (person.health%2 >= .5){
         //rounds up
@@ -233,8 +235,12 @@ function pdamage(){
         }
     }
     pcrit()
+    document.getElementById('playeraction').style.animation = 'None'
+
 };
 function pheal(){
+    document.getElementById('playeraction').innerHTML = 'Recovered'
+    document.getElementById('playeraction').style.color = 'rgb(11, 197, 11)'
     if(person.canHeal){
         person.health = person.health + person.heal
         playerhealth = person.health
@@ -278,10 +284,13 @@ function pheal(){
         console.log(chance)
     }
     e_pheal()
+    document.getElementById('playeraction').style.animation = 'None'
     
 };
 function pdefend(){
     person.health = person.health - 4.5*((enemy.attack)/(person.defence/2))
+    document.getElementById('playeraction').innerHTML = 'BLOCKED'
+    document.getElementById('playeraction').style.color = 'rgb(17, 85, 233)'
     //health is whole number
     if (person.health%2 >= .5){
         //rounds up
@@ -317,6 +326,7 @@ function pdefend(){
         }
     }
     pthorns()
+    document.getElementById('playeraction').style.animation = 'None'
 }
 function forfeit(){
     person.health = 0
@@ -327,6 +337,9 @@ function forfeit(){
 function edamage(){
     enemy.health = enemy.health - (person.attack )
     enemyhealth = enemy.health
+    document.getElementById('enemyaction').innerHTML = 'Attack!'
+    document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
+    
     if (enemy.health%2 >= .5){
         //rounds up
         enemy.health = (enemy.health - enemy.health%2) + 1
@@ -378,9 +391,12 @@ function edamage(){
         }
     }
     ecrit()
+    document.getElementById('enemyaction').style.animation = 'None'
     
 };
 function eheal(){
+    document.getElementById('enemyaction').innerHTML = 'Recovered'
+    document.getElementById('enemyaction').style.color = 'rgb(11, 197, 11)'
     if(enemy.canHeal){
         enemy.health = enemy.health + enemy.heal
         enemyhealth = enemy.health
@@ -413,10 +429,13 @@ function eheal(){
         console.log(chance)
     }
     e_eheal()
+    document.getElementById('enemyaction').style.animation = 'None'
 };
 function edefend(){
     enemy.health = enemy.health - 4.5*((person.attack )/(enemy.defence/2))
     enemyhealth = enemy.health
+    document.getElementById('enemyaction').innerHTML = 'BLOCKED'
+    document.getElementById('enemyaction').style.color = 'rgb(17, 85, 233)'
     //health is whole number
     if (enemy.health%2 != 0) {
         if (enemy.health%2 >= .5){
@@ -453,6 +472,7 @@ function edefend(){
         }
     }
     ethorns()
+    document.getElementById('enemyaction').style.animation = 'None'
     
 }
 function hide(){
@@ -517,14 +537,22 @@ const game = () => {
         computer = computer.toLowerCase();
         if (player === computer){
             if(player == 'attack'){
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdamage();
                 edamage()
                 sethealth()
             }
             else if (player == 'defend'){
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 //pass 
+                document.getElementById('enemyaction').style.animation = 'None'
+                document.getElementById('playeraction').style.animation = 'None'
             }
             else{
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 eheal()
                 pheal()
                 sethealth()
@@ -532,10 +560,16 @@ const game = () => {
         }
         else if(player == 'attack'){
             if (computer == 'defend'){
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 edefend()
+                document.getElementById('playeraction').innerHTML = 'Attack!'
+                document.getElementById('playeraction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
             else{
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 edamage()
                 eheal()
                 sethealth()
@@ -543,21 +577,31 @@ const game = () => {
         }
         else if(player == 'defend'){
             if(computer == 'attack'){
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdefend()
+                document.getElementById('enemyaction').innerHTML = 'Attack!'
+                document.getElementById('enemyaction').style.color = 'rgb(204, 16, 16)'
                 sethealth()
             }
             else{
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 eheal()
                 sethealth()
             }
         }
         else if(player == 'heal'){
             if (computer =='attack'){
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pdamage()
                 pheal()
                 sethealth()
             }
             else{
+                document.getElementById('playeraction').style.animation = 'attackchoice .25s linear 1'
+                document.getElementById('enemyaction').style.animation = 'attackchoice .25s linear 1'
                 pheal()
                 sethealth()
             }

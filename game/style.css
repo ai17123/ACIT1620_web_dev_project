@@ -149,6 +149,16 @@ progress::-webkit-progress-bar {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    display:none;
+}
+
+
+.WhatAction{
+    position:absolute;
+    padding:15px;
+    /* color:rgb(17, 85, 233) */
+    color: rgb(11, 197, 11);
+    animation-iteration-count: inherit;
 }
 
 #characteroptions{
@@ -184,8 +194,6 @@ progress::-webkit-progress-bar {
     border-radius:10px;
     border:5px solid black;
 }
-
-
 
 .charcard button {
     position:relative;
@@ -413,5 +421,17 @@ progress::-webkit-progress-bar {
     }
     .charactercontainer{
         height:25%;
+    }
+}
+
+@keyframes attackchoice{
+    0%{
+        transform:scale(1)
+    }
+    50%{
+        transform:scale(1.1)
+    }
+    100%{
+        transform:scale(1)
     }
 }
