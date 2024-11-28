@@ -47,12 +47,20 @@ header li:hover{
 }
 
 .overlay{
-    position:absolute;
+    position:center;
     transform:translateY();
     padding: 75px;
     justify-content: center;
+    padding-left: 28%;
+    padding-right: 23%;
+    padding-top: 15%;
+    
 
 
+}
+
+.overlay p {
+    font-size: 20px;
 }
 
 .overlay h1{
