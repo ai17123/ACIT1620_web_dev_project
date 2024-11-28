@@ -58,9 +58,16 @@ progress::-webkit-progress-bar {
     height:100%;
 }
 .charactercontainer{
-    height:40vh;
+    height:50%;
     width:30vw;
-    padding:15px
+    padding:15px;
+}
+.charactercontainer img{
+    height:70%;
+    width:50%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 .player_side{
     height:100%;
@@ -136,6 +143,7 @@ progress::-webkit-progress-bar {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    display:none;
 }
 
 #characteroptions{
@@ -331,6 +339,7 @@ progress::-webkit-progress-bar {
     background:lightblue;
 }
 
+
 .grass{
     height:70vh;
     width:100%;
@@ -394,5 +403,12 @@ progress::-webkit-progress-bar {
     }
     .grass{
         height:90%;
+    }
+    .charactercontainer img{
+        height:50%;
+        width:50%;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
     }
 }
